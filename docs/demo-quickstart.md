@@ -13,11 +13,11 @@ This demo walks you through the different functionality available in this projec
 ```bash
 # Run the main CLI command
 task run
-# → "Hello from Naturkart uv demo!"
+# → "Hello from uv-demo!"
 # → "Version: xxxx"
 
 # Alternative without Task
-uv run nk_uv_demo
+uv run uv_demo
 ```
 
 ## 2. Explore Development Commands
@@ -51,7 +51,7 @@ For complete command reference, see [Command Cheatsheet](./command-cheatsheet.md
 
 ```bash
 # See linting in action (introduce an error first)
-echo "import os  # unused import" >> src/nk_uv_demo/__init__.py
+echo "import os  # unused import" >> src/uv_demo/__init__.py
 task check  # Should show the linting error
 
 # Fix it automatically
@@ -73,7 +73,7 @@ xdg-open htmlcov/index.html  # Linux
 
 ```bash
 # Test pre-commit hooks
-echo "test_bad_code = 'not formatted'" >> src/nk_uv_demo/__init__.py
+echo "test_bad_code = 'not formatted'" >> src/uv_demo/__init__.py
 git add .
 git commit -m "Test commit"  # Should trigger pre-commit checks
 ```
@@ -86,9 +86,9 @@ task build
 ls dist/  # Should show .tar.gz and .whl files
 
 # Test installation
-pip install dist/nk_uv_demo-*.whl
-nk_uv_demo
-pip uninstall nk_uv_demo
+pip install dist/uv_demo-*.whl
+uv_demo
+pip uninstall uv_demo
 ```
 
 ## Next Steps

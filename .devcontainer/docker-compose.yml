@@ -8,7 +8,7 @@ services:
     # https://docs.astral.sh/uv/guides/integration/docker/#developing-in-a-container
     volumes:
     - ..:/workspaces:cached   # Bind mount: sync project files
-    - /workspaces/nk_uv_demo/.venv   # Anonymous volume: ensure .venv is not overwritten by bind mount
+    - /workspaces/uv_demo/.venv   # Anonymous volume: ensure .venv is not overwritten by bind mount
     - uv-cache:/root/.cache/uv   # Named volume: persist UV cache between container restarts
 
     # Override the default command to keep the container running
@@ -16,8 +16,8 @@ services:
 
     # Environment variables for development
     environment:
-    - PYTHONPATH=/workspaces/nk_uv_demo
-    - UV_PROJECT_ENVIRONMENT=/workspaces/nk_uv_demo/.venv
+    - PYTHONPATH=/workspaces/uv_demo
+    - UV_PROJECT_ENVIRONMENT=/workspaces/uv_demo/.venv
 
     # Optional: expose ports if your application serves HTTP
     # ports:

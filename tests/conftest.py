@@ -1,4 +1,4 @@
-"""Common test fixtures for the Naturkart uv demo project."""
+"""Common test fixtures for the uv-demo project."""
 
 from pathlib import Path
 from typing import Dict, List
@@ -18,7 +18,7 @@ def sample_data() -> List[str]:
         "  hello world  ",
         "python testing",
         "",
-        "  nk_uv_demo  ",
+        "  uv_demo  ",
         "unit tests"
     ]
 
@@ -31,7 +31,7 @@ def sample_config() -> Dict[str, str]:
     :return: Dictionary with sample configuration.
     """
     return {
-        "name": "Naturkart uv demo",
+        "name": "uv-demo",
         "version": "1.0.0",
         "environment": "test"
     }
@@ -64,8 +64,8 @@ def temp_keyvalue_file() -> Path:
     :return: Path to temporary key=value file.
     """
     content = """
-# Naturkart uv demo test configuration
-name=Naturkart uv demo
+# uv-demo test configuration
+name=uv-demo
 version=1.0.0
 environment=test
 debug=true

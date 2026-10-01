@@ -85,7 +85,7 @@ uv run safety scan --debug
 
 **Trusted publishing not configured**:
 1. Go to [Test PyPI trusted publishers](https://test.pypi.org/manage/account/publishing/)
-2. Add repository: `naturkart-miljodir/uv-demo`
+2. Add repository: `miljodirektoratet/uv-demo`
 3. Workflow name: `cd-python.yml`
 
 **Version conflicts**:

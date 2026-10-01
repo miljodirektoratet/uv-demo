@@ -30,16 +30,16 @@ jobs:
     - name: Build and export
       uses: docker/build-push-action@263435318d21b8e681c14492fe198d362a7d2c83   # v6.18.0
       with:
-        tags: nk_uv_demo:latest
-        cache-from: type=gha,scope=nk_uv_demo
-        cache-to: type=gha,mode=min,scope=nk_uv_demo
-        outputs: type=docker,dest=/tmp/nk_uv_demo.tar
+        tags: uv_demo:latest
+        cache-from: type=gha,scope=uv_demo
+        cache-to: type=gha,mode=min,scope=uv_demo
+        outputs: type=docker,dest=/tmp/uv_demo.tar
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
-        name: nk_uv_demo
-        path: /tmp/nk_uv_demo.tar
+        name: uv_demo
+        path: /tmp/uv_demo.tar
 
   test:
     name: test image
@@ -53,12 +53,12 @@ jobs:
     - name: Download artifact
       uses: actions/download-artifact@v5
       with:
-        name: nk_uv_demo
+        name: uv_demo
         path: /tmp
 
     - name: Load images
       run: |
-        docker load --input /tmp/nk_uv_demo.tar
+        docker load --input /tmp/uv_demo.tar
         docker image ls -a
 
     - name: Test command line

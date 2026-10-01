@@ -1,6 +1,6 @@
-# Naturkart uv demo
+# UV demo
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![TestPyPI](https://img.shields.io/badge/TestPyPI-latest-blue)](https://test.pypi.org/project/nk_uv_demo/) [![Coverage](https://codecov.io/gh/naturkart-miljodir/nk_uv_demo/branch/main/graph/badge.svg)](https://codecov.io/gh/naturkart-miljodir/nk_uv_demo) [![Safety](https://img.shields.io/badge/Safety-Dashboard-blue)](https://platform.safetycli.com/codebases/nk_uv_demo/findings)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![TestPyPI](https://img.shields.io/badge/TestPyPI-latest-blue)](https://test.pypi.org/project/uv_demo/) [![Coverage](https://codecov.io/gh/miljodirektoratet/uv_demo/branch/main/graph/badge.svg)](https://codecov.io/gh/miljodirektoratet/uv_demo) [![Safety](https://img.shields.io/badge/Safety-Dashboard-blue)](https://platform.safetycli.com/codebases/uv_demo/findings)
 
 A demo repository showcasing Python project development and packaging best practices using [uv](https://docs.astral.sh/uv/getting-started/installation/). This project demonstrates project structure, dependency management, containerization with Docker and automated code quality, security scanning and deployment workflows using GitHub Actions (GHA).
 
@@ -30,6 +30,7 @@ A demo repository showcasing Python project development and packaging best pract
 This repository serves as a demonstration and learning resource. To use this as a template for new projects, refer to the [setup guide](./docs/setup-guide.md) in the documentation.
 
 ### Key Features
+
 <!-- List key features and capabilities -->
 
 - **Python packaging**:
@@ -43,18 +44,20 @@ This repository serves as a demonstration and learning resource. To use this as 
 - **Developer tools**: VS Code integration, development containers, Taskfile automation
 
 ### Repository Structure
+
 <!-- Directory layout -->
 
 Important configurations files are listed below, full overview of the repository structure is available in the [Repository Structure](./docs/repo-structure.md) documentation.
 
-| File/Directory            | Purpose                             |
-|---------------------------|-------------------------------------|
-| `.devcontainer/`          | VS Code dev container configuration |
-| `.github/workflows/`      | GitHub Actions for CI/CD (see [GitHub Actions Workflows](#github-actions-workflows)).|
-| `pyproject.toml`          | Python package configuration, dependencies, and build settings |
-| `Taskfile.yml`    | Automated tasks for setting up the dev environment, running code quality checks and more. Run `task help` to see all available tasks or refer to the [Command Cheatsheet](./docs/command-cheatsheet.md). |
+| File/Directory       | Purpose                                                                                                                                                                                                  |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `.devcontainer/`     | VS Code dev container configuration                                                                                                                                                                      |
+| `.github/workflows/` | GitHub Actions for CI/CD (see [GitHub Actions Workflows](#github-actions-workflows)).                                                                                                                    |
+| `pyproject.toml`     | Python package configuration, dependencies, and build settings                                                                                                                                           |
+| `Taskfile.yml`       | Automated tasks for setting up the dev environment, running code quality checks and more. Run `task help` to see all available tasks or refer to the [Command Cheatsheet](./docs/command-cheatsheet.md). |
 
 ### Docker Configuration
+
 <!-- Add only if applicable -->
 
 This project includes multiple Docker configurations to support development, testing and deployment:
@@ -67,20 +70,20 @@ For detailed development container configuration and customization instructiosn,
 
 ### Workflow Statuses
 
-| Job | Status | Description |
-|---|---|---|
-| **CI Python** | ![Status](https://img.shields.io/github/actions/workflow/status/naturkart-miljodir/nk-uv-demo/ci-python.yml?branch=main&label=&style=flat) | Code quality checks, testing, coverage |
-| **CD Python** | ![Status](https://img.shields.io/github/actions/workflow/status/naturkart-miljodir/nk-uv-demo/cd-python.yml?label=&style=flat) | Package deployment to Test PyPI |
-| **CI Docker** | ![Status](https://img.shields.io/github/actions/workflow/status/naturkart-miljodir/nk-uv-demo/ci-docker.yml?branch=main&label=&style=flat) | Build and test Docker image |
-| **CD Docker** | ![Status](https://img.shields.io/github/actions/workflow/status/naturkart-miljodir/nk-uv-demo/cd-docker.yml?label=&style=flat) | Container deployment to GitHub Registry |
-| **Security Scan - CodeQL** | ![Status](https://img.shields.io/github/actions/workflow/status/naturkart-miljodir/nk-uv-demo/scan-codeql.yml?branch=main&label=&style=flat) | Python and GHA security analysis |
-| **Dependabot** |  | Automated dependency updates |
+| Job                        | Status                                                                                                                                       | Description                             |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| **CI Python**              | ![Status](https://img.shields.io/github/actions/workflow/status/miljodirektoratet/uv-demo/ci-python.yml?branch=main&label=&style=flat)   | Code quality checks, testing, coverage  |
+| **CD Python**              | ![Status](https://img.shields.io/github/actions/workflow/status/miljodirektoratet/uv-demo/cd-python.yml?label=&style=flat)               | Package deployment to Test PyPI         |
+| **CI Docker**              | ![Status](https://img.shields.io/github/actions/workflow/status/miljodirektoratet/uv-demo/ci-docker.yml?branch=main&label=&style=flat)   | Build and test Docker image             |
+| **CD Docker**              | ![Status](https://img.shields.io/github/actions/workflow/status/miljodirektoratet/uv-demo/cd-docker.yml?label=&style=flat)               | Container deployment to GitHub Registry |
+| **Security Scan - CodeQL** | ![Status](https://img.shields.io/github/actions/workflow/status/miljodirektoratet/uv-demo/scan-codeql.yml?branch=main&label=&style=flat) | Python and GHA security analysis        |
+| **Dependabot**             |                                                                                                                                              | Automated dependency updates            |
 
-Results of the security scans are visible in the [Security](https://github.com/naturkart-miljodir/nk-uv-demo/security/code-scanning) tab of the GitHub repository.
+Results of the security scans are visible in the [Security](https://github.com/miljodirektoratet/uv-demo/security/code-scanning) tab of the GitHub repository.
 
 ## Getting Started
 
-The **nk-uv-demo** package is a minimal package with a single function that prints the package name. You can install this package from [Test PyPI](https://test.pypi.org/project/nk-uv-demo/) or pull the containerized version from [GHCR](https://github.com/miljodir-naturkart/nk-uv-demo/pkgs/container/uv-demo). The main purpose of this repository is to explore development tools and observe the CI/CD pipeline in action. To get started, follow the steps in the [Development Workflow](#development-workflow) section..
+The **uv-demo** package is a minimal package with a single function that prints the package name. You can install this package from [Test PyPI](https://test.pypi.org/project/uv-demo/) or pull the containerized version from [GHCR](https://github.com/miljodirektoratet/uv-demo/pkgs/container/uv-demo). The main purpose of this repository is to explore development tools and observe the CI/CD pipeline in action. To get started, follow the steps in the [Development Workflow](#development-workflow) section..
 
 ### Installation
 
@@ -90,23 +93,23 @@ The **nk-uv-demo** package is a minimal package with a single function that prin
 Install the package from Test PyPI:
 
 ```bash
-pip install -i https://test.pypi.org/simple/ nk-uv-demo
+pip install -i https://test.pypi.org/simple/ uv-demo
 ```
 
 ```python
-import nk_uv_demo
-nk_uv_demo.main()
-# > Hello from nk-uv-demo!
+import uv_demo
+uv_demo.main()
+# > Hello from uv-demo!
 # > Version: x.x.x
 ```
 
 Or pull and run the container:
 
 ```bash
-docker pull ghcr.io/naturkart-miljodir/nk-uv-demo:latest
+docker pull ghcr.io/miljodirektoratet/uv-demo:latest
 
-docker run --rm ghcr.io/naturkart-miljodir/nk-uv-demo:latest
-# > Hello from nk-uv-demo!
+docker run --rm ghcr.io/miljodirektoratet/uv-demo:latest
+# > Hello from uv-demo!
 # > Version: x.x.x
 ```
 
@@ -136,13 +139,13 @@ The following steps configure your development environment using VS Code Dev Con
 
 4. **Test the installation with Task commands**:
 
-   Task is used to automate common development tasks *(see [Taskfile.yml](Taskfile.yml))*.
+   Task is used to automate common development tasks _(see [Taskfile.yml](Taskfile.yml))_.
 
    ```bash
    # Test the package
    task run
    # or
-   uv run nk-uv-demo
+   uv run uv-demo
 
    # Run quality checks
    task check
@@ -165,29 +168,29 @@ The following steps configure your development environment using VS Code Dev Con
    - Follow the demo walkthrough in the [Quick Start Guide](docs/demo-quickstart.md)
 
 2. **Develop**:
-    - Create a branch for your feature or bug fix: `feat/<name>` or `fix/<name>`.
-    - Make your changes.For example develop package functions in `src/` or add notebooks to `notebooks/`.
-    - Ensure code meets the quality standards by running `task check`.
-    - Ensure tests are written for new features and pass `task test`.
+   - Create a branch for your feature or bug fix: `feat/<name>` or `fix/<name>`.
+   - Make your changes.For example develop package functions in `src/` or add notebooks to `notebooks/`.
+   - Ensure code meets the quality standards by running `task check`.
+   - Ensure tests are written for new features and pass `task test`.
 
 3. **Integrate**:
-    - Check that all CI tests pass locally with `task ci-local`.
-    - Push your branch to GitHub.
-    - Create a pull request against the `main` branch.
-    - Await review and merge; your branch will be automatically deleted after merging.
+   - Check that all CI tests pass locally with `task ci-local`.
+   - Push your branch to GitHub.
+   - Create a pull request against the `main` branch.
+   - Await review and merge; your branch will be automatically deleted after merging.
 
 4. **Deploy**:
-    - Create a git tag for releases (e.g., `0.0.1`) using `task tag`.
-    - Create a PR from `release/<version>` to `main` to deploy the new release.
-    - Once merged to `main`, the CD workflows are triggered:
-        - CD Python automatically builds and publishes the package to Test PyPI.
-        - CD Docker builds and pushes the container image to GitHub Container Registry.
+   - Create a git tag for releases (e.g., `0.0.1`) using `task tag`.
+   - Create a PR from `release/<version>` to `main` to deploy the new release.
+   - Once merged to `main`, the CD workflows are triggered:
+     - CD Python automatically builds and publishes the package to Test PyPI.
+     - CD Docker builds and pushes the container image to GitHub Container Registry.
 
 5. **Clean up**:
    - Clean up dev files and artifacts with `task clean`.
    - Clean up local git:
-        - enable pruning: `git config --global fetch.prune true`
-        - delete merged branch locally: `git branch -d <branch-name>`
+     - enable pruning: `git config --global fetch.prune true`
+     - delete merged branch locally: `git branch -d <branch-name>`
 
 ### Code Quality Standards
 
@@ -199,12 +202,12 @@ See the [Code Quality and Security Standards](./docs/code-and-security-standards
 
 The repository includes automated workflows for code quality, security, and deployment:
 
-| Workflow | Trigger | Purpose |
-|----------|---------|---------|
-| **CI Python** | `push`, `pull_request` to `main` | Code quality checks, testing, coverage |
-| **CD Python** | `push` to `main` with version tags | Package deployment to Test PyPI |
-| **CD Docker** | `push` to `main` with version tags | Container deployment to GitHub Registry |
-| **CodeQL Analysis** | `push`, `pull_request`, `schedule` | Code security analysis |
+| Workflow            | Trigger                            | Purpose                                 |
+| ------------------- | ---------------------------------- | --------------------------------------- |
+| **CI Python**       | `push`, `pull_request` to `main`   | Code quality checks, testing, coverage  |
+| **CD Python**       | `push` to `main` with version tags | Package deployment to Test PyPI         |
+| **CD Docker**       | `push` to `main` with version tags | Container deployment to GitHub Registry |
+| **CodeQL Analysis** | `push`, `pull_request`, `schedule` | Code security analysis                  |
 
 The demo workflows can be customized or removed based on your specific project requirements. At minimum, I recommend including the **CI Python** workflow for code quality and testing, as well as the Security workflow: **CodeQL**.
 
@@ -257,7 +260,7 @@ The `main` branch is protected with the following rules:
 This project incorporates best practices from the Python and DevOps communities, including:
 
 - Astral-sh's [uv Documentation](https://docs.astral.sh/uv/) and Docker configuration example [astral-sh/uv-docker-example](https://github.com/astral-sh/uv-docker-example)
-- GitHub Template: [uv-template](https://github.com/naturkart-miljodir/uv-template)
+- GitHub Template: [uv-template](https://github.com/miljodirektoratet/uv-template)
 
 ## License
 

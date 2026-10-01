@@ -777,7 +777,7 @@ wheels = [
 ]
 
 [[package]]
-name = "nk-uv-demo"
+name = "uv-demo"
 source = { editable = "." }
 
 [package.dev-dependencies]

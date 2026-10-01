@@ -29,12 +29,12 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 ENV PATH="/app/.venv/bin:$PATH"
 
 # Set labels for better container metadata
-LABEL org.opencontainers.image.title="Naturkart uv demo"
+LABEL org.opencontainers.image.title="uv-demo"
 LABEL org.opencontainers.image.description="A Python project built with UV"
 LABEL org.opencontainers.image.authors="Willeke A'Campo <willeke.acampo@miljodir.no>"
-LABEL org.opencontainers.image.source="https://github.com/naturkart-miljodir/nk-uv-demo"
+LABEL org.opencontainers.image.source="https://github.com/miljodirektoratet/uv-demo"
 LABEL org.opencontainers.image.licenses="MIT"
 
 ENTRYPOINT []
 
-CMD ["uv", "run", "nk-uv-demo"]
+CMD ["uv", "run", "uv-demo"]

@@ -1,7 +1,7 @@
 version: '3'
 
 vars:
-  PROJECT_NAME: nk_uv_demo
+  PROJECT_NAME: uv_demo
   PYTHON_VERSION: '>=3.12'
 
 tasks:
@@ -95,16 +95,14 @@ tasks:
   clean:
     desc: Clean build artifacts and caches
     cmds:
-    - rm -rf dist/ build/ *.egg-info/
-    - rm -rf .pytest_cache/ .mypy_cache/ .ruff_cache/
-    - rm -rf htmlcov/ .coverage coverage.xml
-    - find . -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
+    - |
+      uv run python -c "import shutil; from pathlib import Path; paths=['dist','build','.pytest_cache','.mypy_cache','.ruff_cache','htmlcov','.coverage','coverage.xml']; [shutil.rmtree(p, ignore_errors=True) if Path(p).is_dir() else Path(p).unlink(missing_ok=True) for p in paths]; [shutil.rmtree(p, ignore_errors=True) for p in Path('.').rglob('__pycache__') if p.is_dir()]; [shutil.rmtree(p, ignore_errors=True) for p in Path('.').glob('*.egg-info') if p.is_dir()]"
 
   # Development
   run:
     desc: Run the CLI application
     cmds:
-    - uv run --no-sync nk-uv-demo
+    - uv run --no-sync uv-demo
 
   run-docker:
     desc: Build and run Docker container (development mode with volume mounts)
@@ -118,7 +116,7 @@ tasks:
   run-docker-prod:
     desc: Run production container from GitHub Container Registry
     cmds:
-    - docker run --rm ghcr.io/naturkart-miljodir/nk_uv_demo:latest
+    - docker run --rm ghcr.io/miljodirektoratet/uv_demo:latest
 
   dev-setup:
     desc: Complete development environment setup
@@ -154,7 +152,7 @@ tasks:
     desc: Show detailed help for common workflows
     cmds:
     - |
-      echo "Common workflows for Naturkart uv demo:"
+      echo "Common workflows for uv-demo:"
       echo ""
       echo "  Development setup:"
       echo "    task dev-setup    # Complete setup"
@@ -169,7 +167,7 @@ tasks:
       echo "    task test         # Run tests"
       echo ""
       echo "  Running:"
-      echo "    task run          # Run nk_uv_demo"
+      echo "    task run          # Run uv_demo"
       echo "    task run-docker   # Run in Docker container"
       echo "  Release:"
       echo "    task build        # Build package"

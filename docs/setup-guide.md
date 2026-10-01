@@ -5,7 +5,7 @@
 [ ] add a section for how to use this as a template for new projects.
 -->
 
-This guide will walk you through setting up the **Naturkart uv demo** project on your local machine. Ensure you meet the prerequisites and choose the method that best fits your workflow.
+This guide will walk you through setting up the **uv-demo** project on your local machine. Ensure you meet the prerequisites and choose the method that best fits your workflow.
 
 - [Prerequisites](#prerequisites)
 - [Method 1: Taskfile setup](#method-1-taskfile-setup)
@@ -29,12 +29,12 @@ This guide will walk you through setting up the **Naturkart uv demo** project on
 
 ```bash
 # Clone from GitHub
-gh repo clone naturkart-miljodir/Naturkart uv demo
-cd Naturkart uv demo
+gh repo clone miljodirektoratet/uv-demo
+cd uv-demo
 
 # Alternative: using git directly
-git clone https://github.com/naturkart-miljodir/Naturkart uv demo.git
-cd Naturkart uv demo
+git clone https://github.com/miljodirektoratet/uv-demo.git
+cd uv-demo
 ```
 
 ## Method 1: Taskfile setup
@@ -62,7 +62,7 @@ If you have [Task](https://taskfile.dev/installation/) installed:
     ```bash
     # Test the package
     task run
-    # → "Hello from Naturkart uv demo!"
+    # → "Hello from uv-demo!"
     # → "Version: xxxx"
     ```
 
@@ -79,7 +79,7 @@ If you prefer a local setup without using Devcontainers or Task, follow these st
 
     ```bash
     # Navigate to your cloned repository
-    cd Naturkart uv demo
+    cd uv-demo
 
     # Create .venv with dev dependencies
     uv sync --dev
@@ -89,8 +89,8 @@ If you prefer a local setup without using Devcontainers or Task, follow these st
 
     ```bash
     # Run the main CLI command
-    uv run nk_uv_demo
-    # → "Hello from Naturkart uv demo!"
+    uv run uv_demo
+    # → "Hello from uv-demo!"
     # → "Version: xxxx"
     ```
 
@@ -109,7 +109,7 @@ If you have [Docker](https://docs.docker.com/engine/install/) and [VS Code](http
    - Install the recommended dev tools: Task, uv, pre-commit, etc.
    - Set up the uv environment
 4. Test the installation:
-   - Test the package: `task run` or `uv run nk_uv_demo`
+   - Test the package: `task run` or `uv run uv_demo`
    - Run quality checks: `task check` or individual commands
    - Run the example notebook: Open `notebooks/demo.ipynb` and select the `.venv` kernel.
    5. Follow the Demo instructions in the [Quick Start Guide](./demo-quickstart.md) to explore development commands and the Jupyter notebook.

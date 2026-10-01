@@ -1,1 +1,1 @@
-"""Test framework for Naturkart uv demo."""
+"""Test framework for uv-demo."""
