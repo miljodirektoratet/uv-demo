@@ -15,21 +15,21 @@ uv-demo = "uv_demo:main"
 
 [dependency-groups]
 dev = [
-  "deptry>=0.23.1",
-  "ipykernel>=6.29.5,<8",
-  "mypy>=1.18.2",
-  "pip>=25.2",
-  "pre-commit>=4.3.0",
-  "pytest>=8.4.2",
-  "pytest-cov>=7.0.0",
-  "ruff>=0.13.3",
-  "safety>=3.6.2",
-  "setuptools-scm>=9.2.0",
-  "zizmor>=1.14.2",
+  "deptry>=0.25.1",
+  "ipykernel>=7.3.0,<8",
+  "mypy>=2.3.1",
+  "pip>=26.2.1",
+  "pre-commit>=4.6.2",
+  "pytest>=9.1.1",
+  "pytest-cov>=7.1.0",
+  "ruff>=0.16.8",
+  "safety>=3.8.1",
+  "setuptools-scm>=10.3.4",
+  "zizmor>=1.30.1",
 ]
 
 [build-system]
-requires = ["setuptools>=61", "setuptools-scm"]
+requires = ["setuptools>=84.0.0", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
