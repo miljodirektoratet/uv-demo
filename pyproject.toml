@@ -1,5 +1,5 @@
 [project]
-name = "nk-uv-demo"
+name = "uv-demo"
 description = "A Python project built with UV"
 license = "MIT"
 readme = "README.md"
@@ -11,7 +11,7 @@ dependencies = []
 dynamic = ["version"]
 
 [project.scripts]
-nk-uv-demo = "nk_uv_demo:main"
+uv-demo = "uv_demo:main"
 
 [dependency-groups]
 dev = [
@@ -34,16 +34,16 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where =["src"]
-include = ["nk_uv_demo*"]
+include = ["uv_demo*"]
 
 # SETUPTOOLS-SCM config (dynamic versioning)
 [tool.setuptools_scm]
-write_to = "src/nk_uv_demo/_version.py"
+write_to = "src/uv_demo/_version.py"
 fallback_version = "0.0.0"
 
 # DEPTRY config
 [tool.deptry]
-known_first_party = ["nk_uv_demo"]  # ignore local package
+known_first_party = ["uv_demo"]  # ignore local package
 
 # PYTEST config
 [tool.pytest]

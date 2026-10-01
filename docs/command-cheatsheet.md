@@ -4,8 +4,8 @@
 
 | Description | Command |
 |-------------|---------|
-| Clone repository | `gh repo clone naturkart-miljodir/Naturkart uv demo` |
-| Navigate to directory | `cd Naturkart uv demo` |
+| Clone repository | `gh repo clone miljodirektoratet/uv-demo` |
+| Navigate to directory | `cd uv-demo` |
 | Complete development setup | `task dev-setup` |
 | Install dependencies only | `uv sync` |
 | Install package in development mode | `uv pip install -e .` |
@@ -139,9 +139,9 @@
 | Description | Command |
 |-------------|---------|
 | Install from local wheel | `pip install dist/*.whl` |
-| Test CLI command | `nk_uv_demo` |
-| Test from Test PyPI | `pip install -i https://test.pypi.org/simple/ nk_uv_demo` |
-| Uninstall package | `pip uninstall nk_uv_demo` |
+| Test CLI command | `uv_demo` |
+| Test from Test PyPI | `pip install -i https://test.pypi.org/simple/ uv_demo` |
+| Uninstall package | `pip uninstall uv_demo` |
 
 ## Development Environment Commands
 
@@ -199,8 +199,8 @@
 
 | Description | Command |
 |-------------|---------|
-| Build Docker image | `docker build -t nk_uv_demo .` |
-| Run Docker container | `docker run -it nk_uv_demo` |
+| Build Docker image | `docker build -t uv_demo .` |
+| Run Docker container | `docker run -it uv_demo` |
 | List Docker images | `docker images` |
-| Remove Docker image | `docker rmi nk_uv_demo` |
+| Remove Docker image | `docker rmi uv_demo` |
 | Clean up Docker | `docker system prune` |

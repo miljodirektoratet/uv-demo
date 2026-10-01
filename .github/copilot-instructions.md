@@ -1,4 +1,4 @@
-# Copilot Instructions nk-uv-demo
+# Copilot Instructions uv-demo
 
 This file provides guidelines for GitHub Copilot to assist in code generation.
 
@@ -39,12 +39,12 @@ Tech stack: <list main programming languages, frameworks, and tools used in the 
 
 ## Python
 
-- package manager default: uv 
+- package manager default: uv
 - package manager arcpy (ArcGIS Pro): conda
 
 ### Python: UV environment setup
 - pyproject.toml available: `uv sync`
-- no pyproject.toml available: 
+- no pyproject.toml available:
 
     ```bash
     # workspace root

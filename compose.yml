@@ -3,7 +3,7 @@ services:
   app:
     # Build the image from the Dockerfile in the current directory
     build: .
-    command: uv run nk_uv_demo
+    command: uv run uv_demo
 
     develop:
       # Create a `watch` configuration to update the app

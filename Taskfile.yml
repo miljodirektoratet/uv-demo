@@ -1,29 +1,29 @@
-version: '3'
+version: "3"
 
 vars:
-  PROJECT_NAME: nk_uv_demo
-  PYTHON_VERSION: '>=3.12'
+  PROJECT_NAME: uv_demo
+  PYTHON_VERSION: ">=3.12"
 
 tasks:
   # Setup and Installation
   install:
     desc: Install dependencies and setup development environment
     cmds:
-    - uv sync --group dev
-    - task: install-hooks
+      - uv sync --group dev
+      - task: install-hooks
 
   install-hooks:
     desc: Install pre-commit hooks
     cmds:
-    - uv run pre-commit install
+      - uv run pre-commit install
     status:
-    - test -f .git/hooks/pre-commit
+      - test -f .git/hooks/pre-commit
 
   # Code Quality
   pre-commit:
     desc: Run pre-commit hooks on all files
     cmds:
-    - uv run pre-commit run --all-files
+      - uv run pre-commit run --all-files
 
   check:
     desc: Run all code quality checks
@@ -32,38 +32,38 @@ tasks:
   format:
     desc: Format code with Ruff
     cmds:
-    - uv run ruff format
+      - uv run ruff format
 
   lint:
     desc: Run linting checks
     cmds:
-    - uv run ruff check
+      - uv run ruff check
 
   lint-fix:
     desc: Run linting checks and auto-fix issues
     cmds:
-    - uv run ruff check --fix
+      - uv run ruff check --fix
 
   typecheck:
     desc: Run type checking with mypy
     cmds:
-    - uv run mypy src/
+      - uv run mypy src/
 
   deps-check:
     desc: Check for dependency issues
     cmds:
-    - uv run deptry .
+      - uv run deptry .
 
   # Testing
   test:
     desc: Run tests
     cmds:
-    - uv run pytest
+      - uv run pytest
 
   test-cov:
     desc: Run tests with coverage
     cmds:
-    - uv run pytest --cov
+      - uv run pytest --cov
 
   # Security
   security:
@@ -82,58 +82,56 @@ tasks:
   security-workflows:
     desc: Audit GitHub Actions workflows
     cmds:
-    - uv run zizmor .github/workflows/
+      - uv run zizmor .github/workflows/
     ignore_error: true
 
   # Build and Release
   build:
     desc: Build the package
     cmds:
-    - uv build
-    - echo "Package built in dist/"
+      - uv build
+      - echo "Package built in dist/"
 
   clean:
     desc: Clean build artifacts and caches
     cmds:
-    - rm -rf dist/ build/ *.egg-info/
-    - rm -rf .pytest_cache/ .mypy_cache/ .ruff_cache/
-    - rm -rf htmlcov/ .coverage coverage.xml
-    - find . -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
+      - |
+        uv run python -c "import shutil; from pathlib import Path; paths=['dist','build','.pytest_cache','.mypy_cache','.ruff_cache','htmlcov','.coverage','coverage.xml']; [shutil.rmtree(p, ignore_errors=True) if Path(p).is_dir() else Path(p).unlink(missing_ok=True) for p in paths]; [shutil.rmtree(p, ignore_errors=True) for p in Path('.').rglob('__pycache__') if p.is_dir()]; [shutil.rmtree(p, ignore_errors=True) for p in Path('.').glob('*.egg-info') if p.is_dir()]"
 
   # Development
   run:
     desc: Run the CLI application
     cmds:
-    - uv run --no-sync nk-uv-demo
+      - uv run --no-sync uv-demo
 
   run-docker:
     desc: Build and run Docker container (development mode with volume mounts)
     cmds:
-    - |
-      echo "Building Docker image..."
-      IMAGE_ID=$(docker build -q .)
-      echo "Running application in container..."
-      docker run --rm --volume .:/app --volume /app/.venv $IMAGE_ID
+      - |
+        echo "Building Docker image..."
+        IMAGE_ID=$(docker build -q .)
+        echo "Running application in container..."
+        docker run --rm --volume .:/app --volume /app/.venv $IMAGE_ID
 
   run-docker-prod:
     desc: Run production container from GitHub Container Registry
     cmds:
-    - docker run --rm ghcr.io/naturkart-miljodir/nk_uv_demo:latest
+      - docker run --rm ghcr.io/miljodirektoratet/uv_demo:latest
 
   dev-setup:
     desc: Complete development environment setup
     deps: [install, check]
     cmds:
-    - echo "Development environment ready!"
-    - echo "Try - task run"
+      - echo "Development environment ready!"
+      - echo "Try - task run"
 
   # Version Management
   tag:
-    desc: 'Create and push a new version tag (usage: task tag VERSION=1.0.0)'
+    desc: "Create and push a new version tag (usage: task tag VERSION=1.0.0)"
     cmds:
-    - git tag ${{ .VERSION }}
-    - git push origin ${{ .VERSION }}
-    - echo "Tagged and pushed ${{ .VERSION }}"
+      - git tag ${{ .VERSION }}
+      - git push origin ${{ .VERSION }}
+      - echo "Tagged and pushed ${{ .VERSION }}"
     requires:
       vars: [VERSION]
 
@@ -142,37 +140,37 @@ tasks:
     desc: Simulate CI pipeline locally
     deps: [pre-commit, test-cov, security]
     cmds:
-    - echo "Local CI simulation complete!"
+      - echo "Local CI simulation complete!"
 
   # Help
   default:
     desc: Show available tasks
     cmds:
-    - task --list-all
+      - task --list-all
 
   help:
     desc: Show detailed help for common workflows
     cmds:
-    - |
-      echo "Common workflows for Naturkart uv demo:"
-      echo ""
-      echo "  Development setup:"
-      echo "    task dev-setup    # Complete setup"
-      echo "    task install      # Install dependencies only"
-      echo ""
-      echo "  Code quality:"
-      echo "    task check        # Run all quality checks"
-      echo "    task format       # Format code"
-      echo "    task lint-fix     # Fix linting issues"
-      echo ""
-      echo "  Testing:"
-      echo "    task test         # Run tests"
-      echo ""
-      echo "  Running:"
-      echo "    task run          # Run nk_uv_demo"
-      echo "    task run-docker   # Run in Docker container"
-      echo "  Release:"
-      echo "    task build        # Build package"
-      echo "    task tag VERSION=v1.0.0  # Create release tag"
-      echo ""
-      echo "  Use 'task --list' to see all available tasks"
+      - |
+        echo "Common workflows for uv-demo:"
+        echo ""
+        echo "  Development setup:"
+        echo "    task dev-setup    # Complete setup"
+        echo "    task install      # Install dependencies only"
+        echo ""
+        echo "  Code quality:"
+        echo "    task check        # Run all quality checks"
+        echo "    task format       # Format code"
+        echo "    task lint-fix     # Fix linting issues"
+        echo ""
+        echo "  Testing:"
+        echo "    task test         # Run tests"
+        echo ""
+        echo "  Running:"
+        echo "    task run          # Run uv_demo"
+        echo "    task run-docker   # Run in Docker container"
+        echo "  Release:"
+        echo "    task build        # Build package"
+        echo "    task tag VERSION=v1.0.0  # Create release tag"
+        echo ""
+        echo "  Use 'task --list' to see all available tasks"

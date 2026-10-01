@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: testpypi
-      url: https://test.pypi.org/p/nk_uv_demo/
+      url: https://test.pypi.org/p/uv_demo/
     permissions:
       # IMPORTANT: this permission is mandatory for trusted publishing, but
       # should NOT be granted anywhere else!
@@ -67,7 +67,7 @@ jobs:
     if: github.event_name == 'release' || (github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v'))
     environment:
       name: pypi
-      url: https://pypi.org/p/nk_uv_demo/
+      url: https://pypi.org/p/uv_demo/
     permissions:
       # IMPORTANT: this permission is mandatory for trusted publishing, but
       # should NOT be granted anywhere else!

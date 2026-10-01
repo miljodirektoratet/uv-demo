@@ -22,7 +22,7 @@ updates:
         patterns:
           - "*"
         exclude-patterns:
-          - nk_uv_demo* # Exclude the local package itself
+          - uv_demo* # Exclude the local package itself
     cooldown:
       default-days: 7
 

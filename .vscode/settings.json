@@ -14,7 +14,7 @@
     "activityBar.background": "#181818",
     "titleBar.activeBackground": "#181818",
     "titleBar.activeForeground": "#cccccc"
-  },  
+  },
 
   // Python formatting
   "[python]": {
@@ -63,8 +63,8 @@
   "git.branchProtection": ["main"],
   "git.allowNoVerifyCommit": true,
   "git.confirmNoVerifyCommit": false,
-  
+
   // Docker
   "containers.contexts.showInStatusBar": true,
-  
+
 }

@@ -44,10 +44,10 @@ jobs:
     - name: Show Git tag
       run: |
         echo "Git describe: $(git describe --tags --dirty --always)"
-        uv run python -c "import nk_uv_demo; print(f'Package version: {nk_uv_demo.__version__}')"
+        uv run python -c "import uv_demo; print(f'Package version: {uv_demo.__version__}')"
 
     - name: Run deptry (dependency check)
-      run: uv run deptry . --known-first-party nk_uv_demo
+      run: uv run deptry . --known-first-party uv_demo
 
     - name: Run tests with coverage
       run: uv run pytest -m "not ci_exclude"
